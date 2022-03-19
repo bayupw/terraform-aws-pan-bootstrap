@@ -1,8 +1,4 @@
-variable "aws_region" {
-  type        = string
-  default     = "ap-southeast-2"
-  description = "AWS region"
-}
+data "aws_region" "current" {}
 
 variable "aws_iam_role" {
   type        = string

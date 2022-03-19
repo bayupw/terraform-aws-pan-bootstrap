@@ -9,7 +9,7 @@ resource "random_string" "this" {
 locals {
   aws_iam_role     = "${var.aws_iam_role}-${random_string.this.id}"
   aws_iam_policy   = "${var.aws_iam_policy}-${random_string.this.id}"
-  bootstrap_bucket = "${var.bootstrap_bucket}-${var.aws_region}-${random_string.this.id}"
+  bootstrap_bucket = "${var.bootstrap_bucket}-${data.aws_region.current.name}-${random_string.this.id}"
 
   bootstrap_folders = toset([
     "config/",
